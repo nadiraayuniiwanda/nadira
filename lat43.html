@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Deret Fibonacci</title>
+</head>
+<body>
+  <h2>Menghitung Suku Fibonacci</h2>
+
+  <label for="suku">Masukkan nomor suku:</label>
+  <input type="number" id="suku" value="20" min="1">
+
+  <button onclick="hitungFibonacci()">Hitung</button>
+
+  <p id="hasil"></p>
+
+  <script>
+    function hitungFibonacci() {
+      let n = Number(document.getElementById("suku").value);
+      let a = 0;
+      let b = 1;
+
+      if (!Number.isInteger(n) || n < 1) {
+        document.getElementById("hasil").textContent =
+          "Masukkan nomor suku yang valid.";
+        return;
+      }
+
+      for (let i = 1; i < n; i++) {
+        let c = a + b;
+        a = b;
+        b = c;
+      }
+
+      document.getElementById("hasil").textContent =
+        "Suku ke-" + n + " adalah " + a;
+    }
+  </script>
+</body>
+</html>
